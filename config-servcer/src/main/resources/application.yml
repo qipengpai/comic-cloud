@@ -7,11 +7,13 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/eacdy/spring-cloud-study/
+          uri: https://github.com/qipengpai/comic-cloud
           search-paths: config-repo
-          username: 
-          password: 
+          username: 1074723451@qq.com
+          password: pp210510.
 eureka:
+#  instance:
+#    prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://discovery:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
