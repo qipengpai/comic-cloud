@@ -1,6 +1,9 @@
-spring:
-  application:
-    name: microservice-foo300
+#spring:
+#  application:
+#    name: microservice-foo300
+
+
+
 #          http请求地址和资源文件映射如下:，可参考
 #·        /{application}/{profile}[/{label}]
 #
@@ -11,3 +14,5 @@ spring:
 #·        /{application}-{profile}.properties
 #
 #·        /{label}/{application}-{profile}.properties
+
+name: qpp
