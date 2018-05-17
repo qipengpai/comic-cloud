@@ -1,6 +1,6 @@
 spring:
   application:
-    name: microservice-foo3
+    name: microservice-foo300
 #          http请求地址和资源文件映射如下:，可参考
 #·        /{application}/{profile}[/{label}]
 #
