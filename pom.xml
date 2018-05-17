@@ -12,7 +12,8 @@
 	<modules>
 		<module>registry</module>
 		<module>registry-ha</module>
-
+		<module>config-client</module>
+		<module>config-servcer</module>
 	</modules>
 
 	<parent>
