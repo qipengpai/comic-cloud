@@ -14,6 +14,7 @@
 		<module>registry-ha</module>
 		<module>config-client</module>
 		<module>config-servcer</module>
+		<module>qiniu-server</module>
 	</modules>
 
 	<parent>
