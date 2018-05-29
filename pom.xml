@@ -15,6 +15,7 @@
 		<module>config-client</module>
 		<module>config-servcer</module>
 		<module>qiniu-server</module>
+		<module>wechat-server</module>
 	</modules>
 
 	<parent>

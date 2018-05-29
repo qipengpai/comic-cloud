@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qpp.wechatserver.basic.dao.UserEntityMapper">
+  <resultMap id="BaseResultMap" type="com.qpp.wechatserver.basic.entity.UserEntity">
+    <id column="userId" jdbcType="VARCHAR" property="userid" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="deviceId" jdbcType="VARCHAR" property="deviceid" />
+    <result column="endDate" jdbcType="VARCHAR" property="enddate" />
+    <result column="headimgurl" jdbcType="VARCHAR" property="headimgurl" />
+    <result column="hobby" jdbcType="VARCHAR" property="hobby" />
+    <result column="implDate" jdbcType="VARCHAR" property="impldate" />
+    <result column="integral" jdbcType="INTEGER" property="integral" />
+    <result column="language" jdbcType="VARCHAR" property="language" />
+    <result column="lastLoginDate" jdbcType="VARCHAR" property="lastlogindate" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="openid" jdbcType="VARCHAR" property="openid" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="platformIndex" jdbcType="VARCHAR" property="platformindex" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="registerDate" jdbcType="VARCHAR" property="registerdate" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="startDate" jdbcType="VARCHAR" property="startdate" />
+    <result column="systemVersion" jdbcType="VARCHAR" property="systemversion" />
+    <result column="truePhone" jdbcType="VARCHAR" property="truephone" />
+    <result column="truePhoneDate" jdbcType="VARCHAR" property="truephonedate" />
+    <result column="userPassword" jdbcType="VARCHAR" property="userpassword" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="vipId" jdbcType="VARCHAR" property="vipid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    userId, city, country, deviceId, endDate, headimgurl, hobby, implDate, integral, 
+    language, lastLoginDate, nickname, openid, phone, platformIndex, province, registerDate, 
+    sex, startDate, systemVersion, truePhone, truePhoneDate, userPassword, username, 
+    vipId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from userentity
+    where userId = #{userid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from userentity
+    where userId = #{userid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.qpp.wechatserver.basic.entity.UserEntity">
+    insert into userentity (userId, city, country, 
+      deviceId, endDate, headimgurl, 
+      hobby, implDate, integral, 
+      language, lastLoginDate, nickname, 
+      openid, phone, platformIndex, 
+      province, registerDate, sex, 
+      startDate, systemVersion, truePhone, 
+      truePhoneDate, userPassword, username, 
+      vipId)
+    values (#{userid,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{deviceid,jdbcType=VARCHAR}, #{enddate,jdbcType=VARCHAR}, #{headimgurl,jdbcType=VARCHAR}, 
+      #{hobby,jdbcType=VARCHAR}, #{impldate,jdbcType=VARCHAR}, #{integral,jdbcType=INTEGER}, 
+      #{language,jdbcType=VARCHAR}, #{lastlogindate,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
+      #{openid,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{platformindex,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{registerdate,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, 
+      #{startdate,jdbcType=VARCHAR}, #{systemversion,jdbcType=VARCHAR}, #{truephone,jdbcType=VARCHAR}, 
+      #{truephonedate,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{vipid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qpp.wechatserver.basic.entity.UserEntity">
+    insert into userentity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="deviceid != null">
+        deviceId,
+      </if>
+      <if test="enddate != null">
+        endDate,
+      </if>
+      <if test="headimgurl != null">
+        headimgurl,
+      </if>
+      <if test="hobby != null">
+        hobby,
+      </if>
+      <if test="impldate != null">
+        implDate,
+      </if>
+      <if test="integral != null">
+        integral,
+      </if>
+      <if test="language != null">
+        language,
+      </if>
+      <if test="lastlogindate != null">
+        lastLoginDate,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="openid != null">
+        openid,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="platformindex != null">
+        platformIndex,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="registerdate != null">
+        registerDate,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="startdate != null">
+        startDate,
+      </if>
+      <if test="systemversion != null">
+        systemVersion,
+      </if>
+      <if test="truephone != null">
+        truePhone,
+      </if>
+      <if test="truephonedate != null">
+        truePhoneDate,
+      </if>
+      <if test="userpassword != null">
+        userPassword,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="vipid != null">
+        vipId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceid != null">
+        #{deviceid,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="headimgurl != null">
+        #{headimgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="hobby != null">
+        #{hobby,jdbcType=VARCHAR},
+      </if>
+      <if test="impldate != null">
+        #{impldate,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null">
+        #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="language != null">
+        #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="lastlogindate != null">
+        #{lastlogindate,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null">
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="platformindex != null">
+        #{platformindex,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="registerdate != null">
+        #{registerdate,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="startdate != null">
+        #{startdate,jdbcType=VARCHAR},
+      </if>
+      <if test="systemversion != null">
+        #{systemversion,jdbcType=VARCHAR},
+      </if>
+      <if test="truephone != null">
+        #{truephone,jdbcType=VARCHAR},
+      </if>
+      <if test="truephonedate != null">
+        #{truephonedate,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="vipid != null">
+        #{vipid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qpp.wechatserver.basic.entity.UserEntity">
+    update userentity
+    <set>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceid != null">
+        deviceId = #{deviceid,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null">
+        endDate = #{enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="headimgurl != null">
+        headimgurl = #{headimgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="hobby != null">
+        hobby = #{hobby,jdbcType=VARCHAR},
+      </if>
+      <if test="impldate != null">
+        implDate = #{impldate,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null">
+        integral = #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="language != null">
+        language = #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="lastlogindate != null">
+        lastLoginDate = #{lastlogindate,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null">
+        openid = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="platformindex != null">
+        platformIndex = #{platformindex,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="registerdate != null">
+        registerDate = #{registerdate,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="startdate != null">
+        startDate = #{startdate,jdbcType=VARCHAR},
+      </if>
+      <if test="systemversion != null">
+        systemVersion = #{systemversion,jdbcType=VARCHAR},
+      </if>
+      <if test="truephone != null">
+        truePhone = #{truephone,jdbcType=VARCHAR},
+      </if>
+      <if test="truephonedate != null">
+        truePhoneDate = #{truephonedate,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        userPassword = #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="vipid != null">
+        vipId = #{vipid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where userId = #{userid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qpp.wechatserver.basic.entity.UserEntity">
+    update userentity
+    set city = #{city,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      deviceId = #{deviceid,jdbcType=VARCHAR},
+      endDate = #{enddate,jdbcType=VARCHAR},
+      headimgurl = #{headimgurl,jdbcType=VARCHAR},
+      hobby = #{hobby,jdbcType=VARCHAR},
+      implDate = #{impldate,jdbcType=VARCHAR},
+      integral = #{integral,jdbcType=INTEGER},
+      language = #{language,jdbcType=VARCHAR},
+      lastLoginDate = #{lastlogindate,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      openid = #{openid,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      platformIndex = #{platformindex,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      registerDate = #{registerdate,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      startDate = #{startdate,jdbcType=VARCHAR},
+      systemVersion = #{systemversion,jdbcType=VARCHAR},
+      truePhone = #{truephone,jdbcType=VARCHAR},
+      truePhoneDate = #{truephonedate,jdbcType=VARCHAR},
+      userPassword = #{userpassword,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      vipId = #{vipid,jdbcType=VARCHAR}
+    where userId = #{userid,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.qpp.wechatserver.basics.entity.UserEntity">
+    <id column="userId" jdbcType="VARCHAR" property="userid" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="deviceId" jdbcType="VARCHAR" property="deviceid" />
+    <result column="endDate" jdbcType="VARCHAR" property="enddate" />
+    <result column="headimgurl" jdbcType="VARCHAR" property="headimgurl" />
+    <result column="hobby" jdbcType="VARCHAR" property="hobby" />
+    <result column="implDate" jdbcType="VARCHAR" property="impldate" />
+    <result column="integral" jdbcType="INTEGER" property="integral" />
+    <result column="language" jdbcType="VARCHAR" property="language" />
+    <result column="lastLoginDate" jdbcType="VARCHAR" property="lastlogindate" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="openid" jdbcType="VARCHAR" property="openid" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="platformIndex" jdbcType="VARCHAR" property="platformindex" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="registerDate" jdbcType="VARCHAR" property="registerdate" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="startDate" jdbcType="VARCHAR" property="startdate" />
+    <result column="systemVersion" jdbcType="VARCHAR" property="systemversion" />
+    <result column="truePhone" jdbcType="VARCHAR" property="truephone" />
+    <result column="truePhoneDate" jdbcType="VARCHAR" property="truephonedate" />
+    <result column="userPassword" jdbcType="VARCHAR" property="userpassword" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="vipId" jdbcType="VARCHAR" property="vipid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    userId, city, country, deviceId, endDate, headimgurl, hobby, implDate, integral, 
+    language, lastLoginDate, nickname, openid, phone, platformIndex, province, registerDate, 
+    sex, startDate, systemVersion, truePhone, truePhoneDate, userPassword, username, 
+    vipId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from userentity
+    where userId = #{userid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from userentity
+    where userId = #{userid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.qpp.wechatserver.basics.entity.UserEntity">
+    insert into userentity (userId, city, country, 
+      deviceId, endDate, headimgurl, 
+      hobby, implDate, integral, 
+      language, lastLoginDate, nickname, 
+      openid, phone, platformIndex, 
+      province, registerDate, sex, 
+      startDate, systemVersion, truePhone, 
+      truePhoneDate, userPassword, username, 
+      vipId)
+    values (#{userid,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{deviceid,jdbcType=VARCHAR}, #{enddate,jdbcType=VARCHAR}, #{headimgurl,jdbcType=VARCHAR}, 
+      #{hobby,jdbcType=VARCHAR}, #{impldate,jdbcType=VARCHAR}, #{integral,jdbcType=INTEGER}, 
+      #{language,jdbcType=VARCHAR}, #{lastlogindate,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
+      #{openid,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{platformindex,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{registerdate,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, 
+      #{startdate,jdbcType=VARCHAR}, #{systemversion,jdbcType=VARCHAR}, #{truephone,jdbcType=VARCHAR}, 
+      #{truephonedate,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{vipid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qpp.wechatserver.basics.entity.UserEntity">
+    insert into userentity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="deviceid != null">
+        deviceId,
+      </if>
+      <if test="enddate != null">
+        endDate,
+      </if>
+      <if test="headimgurl != null">
+        headimgurl,
+      </if>
+      <if test="hobby != null">
+        hobby,
+      </if>
+      <if test="impldate != null">
+        implDate,
+      </if>
+      <if test="integral != null">
+        integral,
+      </if>
+      <if test="language != null">
+        language,
+      </if>
+      <if test="lastlogindate != null">
+        lastLoginDate,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="openid != null">
+        openid,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="platformindex != null">
+        platformIndex,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="registerdate != null">
+        registerDate,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="startdate != null">
+        startDate,
+      </if>
+      <if test="systemversion != null">
+        systemVersion,
+      </if>
+      <if test="truephone != null">
+        truePhone,
+      </if>
+      <if test="truephonedate != null">
+        truePhoneDate,
+      </if>
+      <if test="userpassword != null">
+        userPassword,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="vipid != null">
+        vipId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceid != null">
+        #{deviceid,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="headimgurl != null">
+        #{headimgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="hobby != null">
+        #{hobby,jdbcType=VARCHAR},
+      </if>
+      <if test="impldate != null">
+        #{impldate,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null">
+        #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="language != null">
+        #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="lastlogindate != null">
+        #{lastlogindate,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null">
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="platformindex != null">
+        #{platformindex,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="registerdate != null">
+        #{registerdate,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="startdate != null">
+        #{startdate,jdbcType=VARCHAR},
+      </if>
+      <if test="systemversion != null">
+        #{systemversion,jdbcType=VARCHAR},
+      </if>
+      <if test="truephone != null">
+        #{truephone,jdbcType=VARCHAR},
+      </if>
+      <if test="truephonedate != null">
+        #{truephonedate,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="vipid != null">
+        #{vipid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qpp.wechatserver.basics.entity.UserEntity">
+    update userentity
+    <set>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceid != null">
+        deviceId = #{deviceid,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null">
+        endDate = #{enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="headimgurl != null">
+        headimgurl = #{headimgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="hobby != null">
+        hobby = #{hobby,jdbcType=VARCHAR},
+      </if>
+      <if test="impldate != null">
+        implDate = #{impldate,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null">
+        integral = #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="language != null">
+        language = #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="lastlogindate != null">
+        lastLoginDate = #{lastlogindate,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null">
+        openid = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="platformindex != null">
+        platformIndex = #{platformindex,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="registerdate != null">
+        registerDate = #{registerdate,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="startdate != null">
+        startDate = #{startdate,jdbcType=VARCHAR},
+      </if>
+      <if test="systemversion != null">
+        systemVersion = #{systemversion,jdbcType=VARCHAR},
+      </if>
+      <if test="truephone != null">
+        truePhone = #{truephone,jdbcType=VARCHAR},
+      </if>
+      <if test="truephonedate != null">
+        truePhoneDate = #{truephonedate,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        userPassword = #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="vipid != null">
+        vipId = #{vipid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where userId = #{userid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qpp.wechatserver.basics.entity.UserEntity">
+    update userentity
+    set city = #{city,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      deviceId = #{deviceid,jdbcType=VARCHAR},
+      endDate = #{enddate,jdbcType=VARCHAR},
+      headimgurl = #{headimgurl,jdbcType=VARCHAR},
+      hobby = #{hobby,jdbcType=VARCHAR},
+      implDate = #{impldate,jdbcType=VARCHAR},
+      integral = #{integral,jdbcType=INTEGER},
+      language = #{language,jdbcType=VARCHAR},
+      lastLoginDate = #{lastlogindate,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      openid = #{openid,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      platformIndex = #{platformindex,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      registerDate = #{registerdate,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      startDate = #{startdate,jdbcType=VARCHAR},
+      systemVersion = #{systemversion,jdbcType=VARCHAR},
+      truePhone = #{truephone,jdbcType=VARCHAR},
+      truePhoneDate = #{truephonedate,jdbcType=VARCHAR},
+      userPassword = #{userpassword,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      vipId = #{vipid,jdbcType=VARCHAR}
+    where userId = #{userid,jdbcType=VARCHAR}
+  </update>
+</mapper>
