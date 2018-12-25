@@ -2,21 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.qpp</groupId>
-	<artifactId>comic-cloud</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
-	<name>comic-cloud</name>
-	<description>comic project for Spring Boot /cloud</description>
 
-	<modules>
-		<module>registry</module>
-		<module>registry-ha</module>
-		<module>config-client</module>
-		<module>config-servcer</module>
-		<module>qiniu-server</module>
-		<module>wechat-server</module>
-	</modules>
+	<groupId>com.qpp</groupId>
+	<artifactId>zuul-server</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>zuul-server</name>
+	<description>zuul-server for comic-cloud</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -32,6 +25,22 @@
 		<spring-cloud.version>Finchley.BUILD-SNAPSHOT</spring-cloud.version>
 	</properties>
 
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
 	<dependencyManagement>
 		<dependencies>
